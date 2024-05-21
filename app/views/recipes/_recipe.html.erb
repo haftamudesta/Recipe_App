@@ -1,0 +1,18 @@
+<div id="<%= dom_id recipe %>" class='main-recipe-details'>
+    <h1><%= recipe.name %></h1>
+    <div class="recipe-show">
+    <div class="recipe-details">
+    <strong>Preparation time: <%= recipe.preparation_time %></strong>
+    <% if can? :edit, recipe%>
+  
+    <%end%>
+    <strong>Cooking time: <%= recipe.cooking_time %></strong>
+      <strong>Description:</strong>
+      <%= recipe.description %>
+       </div>
+       
+        <%=render partial: 'recipes/public_toggle', locals: {recipe: recipe}%>
+    </div>
+
+   
+</div>

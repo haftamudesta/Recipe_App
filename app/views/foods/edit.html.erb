@@ -1,0 +1,12 @@
+<div class="form">
+  <h1>Editing food</h1>
+
+  <%= render "form", food: @food %>
+
+  <br>
+
+  <div class="act-btns">
+    <button type="button" class="show-btn btn"><%= link_to "Show Food", @food %></button>
+    <button type="button" class="back-btn btn"><%= link_to "Back to foods", foods_path %></button>
+  </div>
+</div>

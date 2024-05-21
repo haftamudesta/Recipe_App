@@ -1,0 +1,14 @@
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+
+  <%= render @food %>
+
+  <div>
+    <button type="button" class="edit-btn btn"><%= link_to "Edit this food", edit_food_path(@food) %></button>
+
+
+  <%= link_to "Back to foods", foods_path %>
+
+ 
+
+</div>

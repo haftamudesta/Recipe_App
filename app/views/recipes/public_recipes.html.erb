@@ -1,0 +1,11 @@
+<div class='public-main'>
+<%if @public_recipes.empty?%>
+  <h2>No Public recipes</h2>
+  <%else%>
+  <h1>Public Recipes</h1>
+  
+<%@public_recipes.each do |public_recipe|%>
+<%=render partial: 'public_recipe', locals: {recipe: public_recipe}%>
+<%end%>
+<%end%>
+</div>

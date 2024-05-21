@@ -1,0 +1,33 @@
+
+<%=stylesheet_link_tag('food')%>
+<section>
+<button type="button" class='new-food'><%= link_to "New food", new_food_path  %></button>
+
+<p style="color: green"><%= notice %></p>
+
+
+
+<div id="foods">
+ <table>
+ <thead>
+<tr>
+<th>Food</th>
+<th>Measurement Unit</th>
+<th>Unit price</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+  <% @foods.each do |food| %>
+    <a href="/foods/<%=food.id%>"><%= render food %></a>
+    
+  <% end %>
+   <tbody>
+ </table>
+
+</div>
+
+
+<button type="button" class="back-button"><%= link_to "Back to User", current_user %></button>
+</section>
+

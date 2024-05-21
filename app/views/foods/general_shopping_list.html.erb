@@ -1,0 +1,28 @@
+<section>
+  <h1 class='title-shopping'>Shopping List</h1>
+  <div class='container-amount-total'>
+    <h2 class='amount-shopping'>Amount of items to buy: <%= RecipeFood.includes(:food).where(recipe_id: params[:id]).present? ? RecipeFood.includes(:food).where(recipe_id: params[:id]).length : 0 %></h2>
+    <h2>Total value of food needed: <%= RecipeFood.includes(:food).where(recipe_id: params[:id]).present? ? RecipeFood.includes(:food).where(recipe_id: params[:id]).sum { |recipefood| (recipefood.quantity - recipefood.food.quantity) * recipefood.food.price } : 0 %></h2>
+  </div>
+  
+<table class='table-shopping'>
+<thead>
+  <tr>
+    <th>Food</th>
+    <th>Quantity</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <% if RecipeFood.includes(:food).where(recipe_id: params[:id]).present? %>
+    <% RecipeFood.includes(:food).where(recipe_id: params[:id]).each do |foods| %>
+      <tr class='table'>
+      <tbody>
+        <td><%= foods.food.name %></td>
+        <td><%= foods.quantity - foods.food.quantity %></td>
+        <td><%= foods.food.price * (foods.quantity - foods.food.quantity) %></td>
+      </tr>
+       <tbody>
+    <% end %>
+  <% end %>
+</table>
+</section>

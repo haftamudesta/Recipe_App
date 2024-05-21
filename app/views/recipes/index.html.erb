@@ -1,2 +1,25 @@
+<div class='recipe-container'>
+  <div id="recipes">
+  <%if @recipes.empty?%>
+  <h2>No recipes</h2>
+  <%else%>
+      <% @recipes.each do |recipe| %>
+      <div id=recipe>
+        <div>
+          <h2 class='name-recipe'><%= recipe.name %><span>     </span><%=recipe.id%></h2>
+          <%= button_to "Remove", recipe, method: :delete %>
+        </div>
 
-<h1>WELCOME</h1>
+        <div>
+          <strong>Description:</strong>
+          <%= recipe.description %>
+            <button type="button" class="detail-btn btn"><%= link_to "Details", recipe %></button>
+        </div>
+      </div>
+      
+      
+    <% end %>
+    <% end %>
+  </div>
+  <button type="button" class="add-btn btn"><%= link_to "Add Recipe", new_recipe_path %></button>
+</div>

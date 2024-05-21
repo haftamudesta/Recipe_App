@@ -1,0 +1,20 @@
+
+
+ 
+  
+   <div class='public'>
+    <div class="public_recipe-name-user">
+     <h3 class='name-public'> Name<%= recipe.name %></h3>
+     <h4 class='Byuser-public'>By User:<%= recipe.user.name%></h4>
+   </div>
+   <div class='public_recipe-total-price'>
+     
+       <h4> Total food Items: <%=recipe.recipe_foods.length%></h4>
+      <%sum=recipe.recipe_foods.reduce(0) { |sum, recipe_food| sum + recipe_food.food.price.to_s.to_d*recipe_food.quantity.to_s.to_d }%>
+      <h4>Total price:<%=sum%></h4>
+      <%= link_to "See recipe", recipe%>
+   </div>
+   </div>
+
+
+

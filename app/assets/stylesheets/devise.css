@@ -1,0 +1,30 @@
+.registration {
+  margin-top: 40px;
+  margin-left: 20%;
+}
+
+.log-in-page {
+  margin-left: 20%;
+}
+
+.main-log-in {
+  margin-left: 60px;
+}
+
+.sign-up {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  gap:34px;
+}
+
+.form-feld {
+  width: 30%;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.log-in-btn {
+  width: 10%;
+  background: blueviolet;
+  color: #fff;
+}
