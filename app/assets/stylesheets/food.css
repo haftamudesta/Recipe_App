@@ -1,0 +1,19 @@
+table {
+  width: 70%;
+  margin-bottom: 2rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 4rem;
+}
+
+.new-food,
+.back-button {
+  align-self: end;
+}
+
+.back-button {
+  display: inline-block;
+}

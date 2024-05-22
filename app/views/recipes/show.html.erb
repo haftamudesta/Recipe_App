@@ -1,0 +1,41 @@
+<div class=container>
+  <p style="color: green"><%= notice %></p>
+  <div class="recipe-detail">
+    <%= render @recipe %>
+  </div>
+  <div class="act-btns">
+    <button type="button" class="edit-btn btn"><%= link_to "Edit", edit_recipe_path(@recipe) %></button>
+    <button type="button" class="back-btn btn"><%= link_to "Back", recipes_path %></button>
+    <button type="button" class="gen-btn btn"> <%=link_to 'Generate shopping list', general_shopping_list_path%></button>
+    <%=link_to 'Add ingredient', new_recipe_food_path(recipe_id: @recipe.id) if can? :edit, @recipe%>
+  </div>
+  <table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipe_food.includes([:food]).each do |recipe_food| %>
+      <tr>
+        <td><%= recipe_food.food.name %></td>
+        <td><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
+        <td>$ <%= recipe_food.quantity * recipe_food.food.price %></td>
+        <td class="recipe-food-actions">
+          <%= button_to 'Remove', recipe_food_path(recipe_food), class: "btn-delete", method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, recipe_food %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+  <%= link_to "Back to recipes", recipes_path, class: "add-food-btn recipe-action" %>
+
+  <%= button_to "Destroy this recipe", @recipe, class: "btn-delete", method: :delete if can? :destroy, @recipe %>
+</div>
+

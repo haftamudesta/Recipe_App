@@ -1,0 +1,13 @@
+section {
+  text-align: center;
+}
+
+.container-amount-total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-shopping {
+  margin-left: auto;
+  margin-right: auto;
+}
