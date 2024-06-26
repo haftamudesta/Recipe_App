@@ -1,0 +1,16 @@
+.new_recipe {
+        margin-left: 30%;
+        
+}
+
+.form_content {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: 20%;
+        margin-bottom: 16px;
+}
+
+.submit_form {
+        margin-top: 16px;
+}

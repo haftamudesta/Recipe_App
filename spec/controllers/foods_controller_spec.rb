@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe FoodsController, type: :controller do
   describe 'Get index' do
     let!(:user) { create :test_user }
